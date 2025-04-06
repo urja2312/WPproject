@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Settings - FitLife Tracker</title>
+  <link rel="stylesheet" href="/Users/urja/Desktop/project/css/settings.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>⚙️ Settings</h2>
+      <nav>
+        <a href="dashboard.html">🏠 Dashboard</a>
+      </nav>
+    </aside>
+
+    <main class="settings-content">
+      <h1>Profile Settings</h1>
+
+      <form id="settingsForm">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" placeholder="Enter username" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" placeholder="Enter email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="goal">Fitness Goal:</label>
+          <input type="text" id="goal" placeholder="e.g., Lose weight, Build muscle" />
+        </div>
+
+        <div class="form-group">
+          <label for="integration">Integration:</label>
+          <select id="integration" required>
+            <option value="">-- Select an option --</option>
+            <option value="google_fit">Google Fit</option>
+            <option value="apple_health">Apple Health</option>
+          </select>
+        </div>
+
+        <button type="submit">Save Changes</button>
+      </form>
+    </main>
+  </div>
+</body>
+</html>

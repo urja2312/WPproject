@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Progress History</title>
+  <link rel="stylesheet" href="/Users/urja/Desktop/project/css/workouthistory.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Progress History</h1>
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="workouthistory.html">Workout History</a>
+        <a href="mealhistory.html">Meal History</a>
+      </nav>
+    </header>
+
+    <section class="history-section">
+      <h2>Overall Progress</h2>
+      <div class="progress-records">
+        <div class="record">
+          <h3>Weight</h3>
+          <p>Start: 75 kg</p>
+          <p>Current: 70 kg</p>
+        </div>
+        <div class="record">
+          <h3>Muscle Mass</h3>
+          <p>Start: 30%</p>
+          <p>Current: 35%</p>
+        </div>
+        <div class="record">
+          <h3>Body Fat</h3>
+          <p>Start: 25%</p>
+          <p>Current: 18%</p>
+        </div>
+      </div>
+
+      <h2>Progress Graph</h2>
+      <canvas id="progressChart"></canvas>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('progressChart').getContext('2d');
+    const progressChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+        datasets: [{
+          label: 'Weight (kg)',
+          data: [75, 73, 71, 70],
+          borderColor: 'yellow',
+          backgroundColor: 'rgba(255, 255, 0, 0.2)',
+          tension: 0.3
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: false
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

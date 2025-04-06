@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background: url('/Users/urja/Desktop/project/images/wpproject.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    min-height: 100vh;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: brightness(0.3);
+  }
+  
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .nav-links a {
+    color: #c8c8c8;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 10px;
+  }
+  
+  .nav-links a:hover {
+    color: #cc0000;
+    border-bottom: 2px solid #cc0000;
+  }
+  
+  .container {
+    max-width: 700px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  input, select {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    background-color: #333;
+    color: white;
+  }
+  
+  button {
+    background-color: #cc0000;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #990000;
+  }
+  
+  .reminder-list {
+    margin-top: 30px;
+    text-align: left;
+  }
+  
+  .reminder-item {
+    background-color: rgba(30, 30, 30, 0.85);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .reminder-item span {
+    flex-grow: 1;
+  }
+  
+  .reminder-item button {
+    margin-left: 10px;
+    background: #444;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .toggle-container {
+    margin: 20px 0;
+  }
+  
+  .toggle-container label {
+    font-weight: 600;
+    margin-left: 10px;
+  }
+  
+  .nav-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav-buttons a {
+    background: #333;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+  }
+  
+  .nav-buttons a:hover {
+    background-color: #cc0000;
+  }
+  

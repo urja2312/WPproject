@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Social & Community</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/Users/urja/Desktop/project/css/socialandcom.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Social & Community</h2>
+
+  <div class="section">
+    <h3>📢 Share Your Progress</h3>
+    <div class="form-group">
+      <textarea id="share-input" placeholder="Share your latest workout, meal or progress..."></textarea>
+      <button onclick="sharePost()">Post</button>
+    </div>
+    <div id="post-list"></div>
+  </div>
+
+  <div class="section">
+    <h3>🔥 Community Challenges</h3>
+    <ul>
+      <li>30-Day Pushup Challenge – <strong>12 Days Completed</strong></li>
+      <li>Hydration Streak – <strong>5 Days in a Row</strong></li>
+      <li>Meal Logging Marathon – <strong>18 of 30 Days Logged</strong></li>
+    </ul>
+  </div>
+
+  <div class="nav-buttons">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="workout.html">🏋️ Workout Tracking</a>
+    <a href="meal.html">🍽️ Meal Tracking</a>
+  </div>
+</div>
+
+<script>
+  const postList = document.getElementById("post-list");
+
+  function sharePost() {
+    const input = document.getElementById("share-input");
+    const text = input.value.trim();
+    if (!text) {
+      alert("Please enter something to share.");
+      return;
+    }
+
+    const post = document.createElement("div");
+    post.className = "shared-post";
+    post.innerHTML = `
+      <p><strong>You:</strong> ${text}</p>
+      <div class="form-group">
+        <input type="text" placeholder="Add a comment..." onkeypress="handleComment(event, this)">
+      </div>
+    `;
+    postList.prepend(post);
+    input.value = '';
+  }
+
+  function handleComment(e, inputEl) {
+    if (e.key === 'Enter') {
+      const comment = inputEl.value.trim();
+      if (comment) {
+        const commentP = document.createElement("p");
+        commentP.className = "comment";
+        commentP.textContent = `💬 Friend: ${comment}`;
+        inputEl.parentElement.appendChild(commentP);
+        inputEl.value = '';
+      }
+    }
+  }
+</script>
+
+</body>
+</html>

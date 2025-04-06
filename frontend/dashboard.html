@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fitness Dashboard</title>
+  <link rel="stylesheet" href="/Users/urja/Desktop/project/css/dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+  <div class="sidebar">
+    <div class="profile">
+      <p id="username">User</p>
+    </div>
+    <a href="index.html"><span>🏠</span> Home</a>
+    <a href="settings.html"><span>⚙️</span> Settings</a>
+    <a href="socialandcom.html"><span>📱</span> Socials</a>
+    <a href="diet.html"><span>🥗</span> Diet Plan</a>
+    <a href="workout.html"><span>🏋️</span> Workouts</a>
+    <a href="reminders.html"><span>🔔</span>Reminders</a>
+    <a href="aisuggestion.html"><span>🤖</span>AI Suggestions</a>
+    <a href="help.html"><span>🚨</span>Help</a>
+  </div>
+
+  <div class="content scrollable">
+    <div class="dashboard-header">
+      <h2>Dashboard</h2>
+      <button id="addWorkoutBtn">Add Workout</button>
+    </div>
+    <div class="stats">
+      <div class="card"><h3>Weekly Kcal Burned</h3><canvas id="kcalChart"></canvas></div>
+      <div class="card"><h3>Daily Steps Count</h3><canvas id="stepsChart"></canvas></div>
+      <div class="card"><h3>Weekly Running Distance</h3><canvas id="distanceChart"></canvas></div>
+      <div class="card"><h3>Water Intake</h3><canvas id="waterChart"></canvas></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("username").innerText = localStorage.getItem("username") || "Guest";
+
+    document.getElementById("addWorkoutBtn").addEventListener("click", () => {
+      window.location.href = "workout.html";
+    });
+
+    function createChart(id, value, color) {
+      new Chart(document.getElementById(id), {
+        type: 'doughnut',
+        data: {
+          datasets: [{
+            data: [value, 100 - value],
+            backgroundColor: [color, '#333']
+          }]
+        },
+        options: {
+          cutout: '70%',
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+    }
+
+    createChart('kcalChart', 75, 'yellow');
+    createChart('stepsChart', 50, 'green');
+    createChart('distanceChart', 60, 'blue');
+    createChart('waterChart', 80, 'cyan');
+  </script>
+</body>
+</html>

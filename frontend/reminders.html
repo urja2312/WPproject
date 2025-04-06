@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reminders & Notifications</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/Users/urja/Desktop/project/css/reminders.css">
+</head>
+<body>
+
+
+<div class="container">
+  <h2>Reminders & Notifications</h2>
+
+  <div class="form-group">
+    <input type="text" id="reminder-text" placeholder="Reminder (e.g. Drink Water)">
+    <input type="time" id="reminder-time">
+    <select id="reminder-type">
+      <option value="Workout">Workout</option>
+      <option value="Meal">Meal</option>
+      <option value="Water">Water</option>
+      <option value="Sleep">Sleep</option>
+    </select>
+    <button onclick="addReminder()">Add Reminder</button>
+  </div>
+
+  <div class="toggle-container">
+    <input type="checkbox" id="notificationsToggle" />
+    <label for="notificationsToggle">Enable Push Notifications</label>
+  </div>
+
+  <div class="reminder-list" id="reminder-list">
+    <!-- Populated reminders will appear here -->
+    <p>No reminders added yet.</p>
+  </div>
+
+  <div class="nav-buttons">
+    <a href="dashboard.html">← Back to Dashboard</a>
+    <a href="settings.html">⚙️ Settings</a>
+  </div>
+</div>
+
+<script>
+  const reminders = [];
+  const list = document.getElementById("reminder-list");
+
+  function addReminder() {
+    const text = document.getElementById("reminder-text").value.trim();
+    const time = document.getElementById("reminder-time").value;
+    const type = document.getElementById("reminder-type").value;
+
+    if (!text || !time) {
+      alert("Please enter a reminder and time.");
+      return;
+    }
+
+    const id = Date.now();
+    const reminder = { id, text, time, type };
+    reminders.push(reminder);
+    renderReminders();
+    clearFields();
+  }
+
+  function clearFields() {
+    document.getElementById("reminder-text").value = "";
+    document.getElementById("reminder-time").value = "";
+  }
+
+  function deleteReminder(id) {
+    const index = reminders.findIndex(r => r.id === id);
+    if (index !== -1) {
+      reminders.splice(index, 1);
+      renderReminders();
+    }
+  }
+
+  function renderReminders() {
+    list.innerHTML = "";
+    if (reminders.length === 0) {
+      list.innerHTML = "<p>No reminders added yet.</p>";
+      return;
+    }
+
+    reminders.forEach(r => {
+      const item = document.createElement("div");
+      item.className = "reminder-item";
+      item.innerHTML = `
+        <span><strong>[${r.type}]</strong> ${r.text} at ${r.time}</span>
+        <button onclick="deleteReminder(${r.id})">🗑️</button>
+      `;
+      list.appendChild(item);
+    });
+  }
+
+  document.getElementById("notificationsToggle").addEventListener("change", function () {
+    alert(this.checked ? "Push notifications enabled!" : "Push notifications disabled.");
+  });
+</script>
+
+</body>
+</html>

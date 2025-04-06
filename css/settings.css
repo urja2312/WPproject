@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    display: flex;
+    height: 100vh;
+    background: url('/Users/urja/Desktop/project/images/wpproject.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-blend-mode: darken;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+  }
+  
+  .container {
+    display: flex;
+    width: 50%;
+  }
+  
+  .sidebar {
+    width: 220px;
+    background-color: #121212;
+    padding: 20px;
+  }
+  
+  .sidebar h2 {
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar nav a {
+    display: block;
+    padding: 10px 0;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .sidebar nav a:hover {
+    color: yellow;
+  }
+  
+  .settings-content {
+    flex-grow: 1;
+    padding: 40px;
+  }
+  
+  .settings-content h1 {
+    margin-bottom: 30px;
+    color: white;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    background-color: #f0f0f0;
+    color: black;
+  }
+  
+  button[type="submit"] {
+    padding: 12px 24px;
+    background-color: red;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: darkred;
+  }
+  

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Help & Support</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/Users/urja/Desktop/project/css/help.css" />
+</head>
+<body>
+
+<div class="container">
+  <h2>Help & Support</h2>
+
+  <!-- FAQs Section -->
+  <div class="section">
+    <h3>❓ FAQs</h3>
+    <ul>
+      <li><strong>How do I log a workout?</strong> - Go to the Workout page and fill out the form.</li>
+      <li><strong>How can I track meals?</strong> - Use the Diet & Nutrition page to search or manually log meals.</li>
+      <li><strong>Can I view my progress?</strong> - Yes! Check the Progress Tracking section from the dashboard.</li>
+    </ul>
+  </div>
+
+  <!-- Tutorials & Tips -->
+  <div class="section">
+    <h3>📘 Tutorials & Tips</h3>
+    <ul>
+      <li>Start with small goals and increase them over time.</li>
+      <li>Stay consistent and log daily for best results.</li>
+      <li>Explore each section of the tracker to get the most out of it.</li>
+    </ul>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="section">
+    <h3>📩 Contact Support</h3>
+    <form id="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Describe your issue..." required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- Feedback -->
+  <div class="section">
+    <h3>💬 User Feedback</h3>
+    <div class="feedback-group">
+      <textarea id="feedback" placeholder="Leave your feedback here..."></textarea>
+      <button onclick="submitFeedback()">Send Feedback</button>
+      <p id="feedback-msg" style="margin-top: 10px; color: lightgreen;"></p>
+    </div>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="nav-buttons">
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+  </div>
+</div>
+
+<script>
+  function submitFeedback() {
+    const msg = document.getElementById("feedback-msg");
+    msg.textContent = "Thank you for your feedback!";
+    setTimeout(() => msg.textContent = "", 4000);
+    document.getElementById("feedback").value = "";
+  }
+
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Support request submitted!");
+    this.reset();
+  });
+</script>
+
+</body>
+</html>

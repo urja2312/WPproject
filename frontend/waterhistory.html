@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Water Intake History</title>
+  <link rel="stylesheet" href="/Users/urja/Desktop/project/css/waterhistory.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="water-history-page">
+  <header>
+    <nav class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="mealhistory.html">Meal History</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="water-summary">
+      <h1>Water Intake History</h1>
+      <p>Track your hydration habits over time.</p>
+      <div class="summary">
+        <div class="card">
+          <h3>Total Water Intake (Last 7 Days)</h3>
+          <p id="total-intake">12.6 Litres</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="chart-section">
+      <h2>Daily Water Intake</h2>
+      <canvas id="waterIntakeChart"></canvas>
+    </section>
+  </main>
+
+  <script>
+    // Dummy data
+    const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    const intakeData = [1.5, 1.8, 2.0, 1.7, 2.1, 1.9, 1.6];
+
+    const ctx = document.getElementById("waterIntakeChart").getContext("2d");
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: days,
+        datasets: [{
+          label: "Litres",
+          data: intakeData,
+          backgroundColor: "#4fc3f7"
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: "Litres"
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

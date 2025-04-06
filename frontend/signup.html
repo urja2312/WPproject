@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Signup - Fitness Tracker</title>
+  <link rel="stylesheet" href="/Users/urja/Desktop/project/css/signup.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="signup-page">
+
+<header>
+  <h1></h1>
+  <nav>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+    </div>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Sign Up</h2>
+  <form id="signupForm" novalidate>
+    <input type="text" id="name" class="input-field" placeholder="Full Name" required>
+    <input type="email" id="email" class="input-field" placeholder="Email Address" required>
+    <input type="password" id="password" class="input-field" placeholder="Password" required minlength="6">
+    <input type="number" id="age" class="input-field" placeholder="Age" required min="10">
+    <select id="gender" class="input-field" required>
+      <option value="" disabled selected>Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+    <button type="submit" class="btn">Sign Up</button>
+  </form>
+  <p>Already have an account? <a href="login.html" class="signup-link">Login here</a></p>
+</div>
+
+<script>
+  document.getElementById("signupForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const age = document.getElementById("age");
+    const gender = document.getElementById("gender");
+
+    if (!name.value.trim()) {
+      alert("Please enter your full name.");
+      return;
+    }
+
+    if (!email.validity.valid) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    if (password.value.length < 6) {
+      alert("Password must be at least 6 characters.");
+      return;
+    }
+
+    if (!age.validity.valid || parseInt(age.value) < 10) {
+      alert("Please enter a valid age (10 or older).");
+      return;
+    }
+
+    if (!gender.value) {
+      alert("Please select your gender.");
+      return;
+    }
+
+    const userData = {
+      name: name.value,
+      email: email.value,
+      password: password.value,
+      age: age.value,
+      gender: gender.value
+    };
+
+    localStorage.setItem("user", JSON.stringify(userData));
+    alert("Registration Successful!");
+    window.location.href = "dashboard.html";
+  });
+</script>
+
+</body>
+</html>

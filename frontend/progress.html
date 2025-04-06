@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Progress Tracking</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/Users/urja/Desktop/project/css/progress.css">
+</head>
+<body>
+
+  <div class="container">
+    <h2>Progress Tracking</h2>
+
+    <div class="card">
+      <h3>Weight & BMI Trends</h3>
+      <canvas id="progressChart"></canvas>
+    </div>
+
+    <div class="card">
+      <h3>Body Measurement Logs</h3>
+      <div class="measurements">
+        <input type="text" placeholder="Waist (inches)">
+        <input type="text" placeholder="Chest (inches)">
+        <input type="text" placeholder="Arms (inches)">
+        <input type="text" placeholder="Thighs (inches)">
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Consistency Streak</h3>
+      <p class="streak" id="streakDisplay">You've tracked for <span id="streakCount">5</span> days in a row!</p>
+    </div>
+
+    <div class="nav-buttons">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="diet.html">🍽️ Meal Tracking</a>
+      <a href="history.html">📆 Workout History</a>
+    </div>
+  </div>
+
+  <script>
+    const progressCtx = document.getElementById('progressChart').getContext('2d');
+    const progressChart = new Chart(progressCtx, {
+      type: 'line',
+      data: {
+        labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'],
+        datasets: [
+          {
+            label: 'Weight (kg)',
+            data: [72, 71.5, 71, 70.8, 70.5],
+            borderColor: '#cc0000',
+            backgroundColor: 'transparent',
+            tension: 0.3
+          },
+          {
+            label: 'BMI',
+            data: [23.5, 23.4, 23.2, 23.1, 23.0],
+            borderColor: '#00ffcc',
+            backgroundColor: 'transparent',
+            tension: 0.3
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: { color: '#fff' }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: '#ccc' }
+          },
+          y: {
+            ticks: { color: '#ccc' }
+          }
+        }
+      }
+    });
+
+    let streak = 5;
+    document.getElementById('streakCount').textContent = streak;
+  </script>
+
+</body>
+</html>

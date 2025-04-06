@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Suggestions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/Users/urja/Desktop/project/css/aisuggestion.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>AI Suggestions</h2>
+
+  <div class="form-group">
+    <label for="goal-select">Choose Your Fitness Goal:</label>
+    <select id="goal-select">
+      <option value="weight_loss">Weight Loss</option>
+      <option value="muscle_gain">Muscle Gain</option>
+      <option value="endurance">Improve Endurance</option>
+      <option value="flexibility">Increase Flexibility</option>
+    </select>
+  </div>
+
+  <button onclick="showSuggestions()">Generate Suggestions</button>
+
+  <div id="suggestions" class="suggestion-box" style="display: none;">
+    <div id="meal-suggestions"></div>
+    <div id="workout-suggestions" style="margin-top: 20px;"></div>
+  </div>
+
+  <div class="nav-buttons">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="history.html">🏋️ Workout History</a>
+    <a href="meal.html">🍱 Meal History</a>
+  </div>
+</div>
+
+<script>
+  const mealData = {
+    weight_loss: [
+      "Grilled chicken with quinoa and broccoli",
+      "Oats with berries and Greek yogurt",
+      "Zucchini noodles with lean turkey sauce"
+    ],
+    muscle_gain: [
+      "Steak with brown rice and avocado",
+      "Protein smoothie with banana and peanut butter",
+      "Chicken burrito bowl with beans and veggies"
+    ],
+    endurance: [
+      "Whole grain pasta with salmon and veggies",
+      "Hummus with pita and spinach salad",
+      "Banana and almond butter pre-run snack"
+    ],
+    flexibility: [
+      "Mixed greens with nuts and olive oil",
+      "Egg white omelet with veggies",
+      "Grilled tofu with stir-fried greens"
+    ]
+  };
+
+  const workoutData = {
+    weight_loss: [
+      "HIIT session - 20 mins",
+      "Cardio (Running or Cycling) - 30 mins",
+      "Bodyweight Circuits - 3 rounds"
+    ],
+    muscle_gain: [
+      "Strength training - Chest & Back (4 sets each)",
+      "Deadlifts & Squats - 4x8",
+      "Push/Pull routine - 5 sets"
+    ],
+    endurance: [
+      "Long-distance running - 45 mins",
+      "Jump rope & stairs - 20 mins",
+      "Rowing machine - 25 mins"
+    ],
+    flexibility: [
+      "Yoga flow - 30 mins",
+      "Dynamic stretching - 15 mins",
+      "Pilates session - 20 mins"
+    ]
+  };
+
+  function showSuggestions() {
+    const goal = document.getElementById("goal-select").value;
+    const mealList = mealData[goal].map(item => `<li>${item}</li>`).join('');
+    const workoutList = workoutData[goal].map(item => `<li>${item}</li>`).join('');
+
+    document.getElementById("meal-suggestions").innerHTML = `<h3>🍽️ Meal Suggestions</h3><ul>${mealList}</ul>`;
+    document.getElementById("workout-suggestions").innerHTML = `<h3>🏋️ Workout Suggestions</h3><ul>${workoutList}</ul>`;
+    document.getElementById("suggestions").style.display = "block";
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meal History - Fitness Tracker</title>
+  <link rel="stylesheet" href="/Users/urja/Desktop/project/css/mealhistory.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="meal-history-page">
+
+  <div class="sidebar">
+    <div class="profile">
+      <p id="username">User</p>
+    </div>
+    <a href="dashboard.html">🏠 Dashboard</a>
+    <a href="workouthistory.html">🏋️ Workout History</a>
+    <a href="waterhistory.html">💧 Water Intake History</a>
+  </div>
+
+  <div class="content">
+    <h2>Meal History</h2>
+
+    <div class="meal-list">
+      <div class="meal-entry">
+        <h3>Breakfast - April 5</h3>
+        <p>Calories: 350 kcal | Protein: 15g | Carbs: 40g | Fats: 10g</p>
+      </div>
+      <div class="meal-entry">
+        <h3>Lunch - April 5</h3>
+        <p>Calories: 600 kcal | Protein: 25g | Carbs: 60g | Fats: 20g</p>
+      </div>
+      <!-- More entries can be dynamically added here -->
+    </div>
+
+    <div class="graph-placeholder">
+      <h3>Nutritional Breakdown Over Time</h3>
+      <div class="chart-box">
+        <!-- Placeholder for future chart integration -->
+        <canvas id="nutritionChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    document.getElementById("username").innerText = localStorage.getItem("username") || "Guest";
+
+    // Placeholder data for chart
+    new Chart(document.getElementById("nutritionChart"), {
+      type: 'line',
+      data: {
+        labels: ['April 1', 'April 2', 'April 3', 'April 4', 'April 5'],
+        datasets: [
+          {
+            label: 'Calories',
+            data: [400, 450, 500, 600, 550],
+            borderColor: 'yellow',
+            fill: false
+          },
+          {
+            label: 'Protein',
+            data: [20, 25, 30, 35, 30],
+            borderColor: 'lightgreen',
+            fill: false
+          },
+          {
+            label: 'Carbs',
+            data: [50, 60, 70, 65, 60],
+            borderColor: 'cyan',
+            fill: false
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: 'white'
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: 'white' }
+          },
+          y: {
+            ticks: { color: 'white' }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

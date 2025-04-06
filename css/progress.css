@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background: url('/Users/urja/Desktop/project/images/wpproject.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    min-height: 100vh;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: brightness(0.3);
+  }
+  
+  header {
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 40px;
+    border-bottom: 1.5px solid #cc0000;
+    z-index: 1000;
+  }
+  
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .nav-links a {
+    color: #c8c8c8;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 10px;
+  }
+  
+  .nav-links a:hover {
+    color: #cc0000;
+    border-bottom: 2px solid #cc0000;
+  }
+  
+  .container {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .card {
+    background-color: rgba(30, 30, 30, 0.85);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  canvas {
+    width: 100%;
+    max-height: 300px;
+  }
+  
+  .measurements {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .measurements input {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    background: #333;
+    color: white;
+  }
+  
+  .streak {
+    font-size: 1.2rem;
+    color: #00ffcc;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .nav-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav-buttons a {
+    background: #333;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+  }
+  
+  .nav-buttons a:hover {
+    background-color: #cc0000;
+  }
+  

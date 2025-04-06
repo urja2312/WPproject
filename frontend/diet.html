@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diet & Nutrition</title>
+  <link rel="stylesheet" href="/Users/urja/Desktop/project/css/diet.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="diet-page">
+  <div class="container">
+    <header>
+      <h1>Diet & Nutrition</h1>
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="progress.html">Progress</a>
+        <a href="workout.html">Workouts</a>
+        <a href="waterhistory.html">Water Intake</a>
+        <a href="mealhistory.html">Meal History</a>
+      </nav>
+    </header>
+
+    <section class="meal-log">
+      <h2>Log Your Meal</h2>
+      <form id="mealForm">
+        <input type="text" placeholder="Meal name or item" required />
+        <input type="number" placeholder="Calories" required />
+        <input type="number" placeholder="Protein (g)" />
+        <input type="number" placeholder="Carbs (g)" />
+        <input type="number" placeholder="Fats (g)" />
+        <button type="submit">Add Meal</button>
+      </form>
+    </section>
+
+    <section class="nutrition-summary">
+      <h2>Today's Nutrition</h2>
+      <ul>
+        <li>Calories: 0</li>
+        <li>Protein: 0g</li>
+        <li>Carbs: 0g</li>
+        <li>Fats: 0g</li>
+      </ul>
+    </section>
+
+    <section class="meal-history">
+      <h2>Meal History</h2>
+      <div class="meal-list">
+        <p>No meals logged yet.</p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // JS to handle form can be added later or when integrating backend
+  </script>
+</body>
+</html>
